@@ -1,26 +1,27 @@
+// import logo from './logo.svg';
 import React from 'react'
 import './App.css';
-import Login from './component/Login';
-import Register from './component/Register';
-import Home from './component/Home';
-import Create from './component/Create';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+import Home from './components/home/Home';
+import Create from './components/create/Create';
 import { BrowserRouter , Routes, Route } from 'react-router-dom';
-
-
+// import Form from './components/Form'
+// import Loader from './components/card/Loder';
 function App() {
   return (
-    <>    
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element ={<Login/>}/>
-      <Route path='/register' element ={<Register/>}/>
-      <Route path='/home' element ={<Home/>}/>
-      <Route path='/create' element ={<Create/>}/>
-    </Routes>
-    
-    </BrowserRouter>
-    </>
-   
+    <div className="App">
+         {/* <Form/>   */}
+         {/* <Loader/> */}
+         <BrowserRouter>
+              <Routes>
+                <Route path='/' element ={<Login/>}/>
+                <Route path='/register' element ={<Register/>}/>
+                <Route path='/home' element ={<Home/>}/>
+                <Route path='/create' element ={<Create/>}/>
+              </Routes>
+          </BrowserRouter>
+    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Loader from './Loader';
+import Loader from '../card/Loder';
 // import Coockie from 'js-coocki'
 
 const Login = (props) => {
@@ -31,17 +31,17 @@ const Login = (props) => {
   //Onsubmit function 
   async function onsunmitFun(e) {
     e.preventDefault()
-    console.log('onsubmit')
-    console.log(checkboxStatus)
+    // console.log('onsubmit')
+    // console.log(checkboxStatus)
     setLoder(true)
     try {
       const body = {
         email: inputEmail,
         password: inputPassword
       }
-      let res = await axios.post('https://dec-k5lr.onrender.com/user/login', body)
+      let res = await axios.post('https://hirakp-fullstackblog-post-prt1.onrender.com/user/login', body)
       setErrorMessege('')
-      // console.log(res.data.token)
+      console.log(res.data)
       localStorage.setItem('logToken', res.data.token) 
       navgate('./home')
       // // coocki
@@ -68,9 +68,7 @@ const Login = (props) => {
         <input type='password' style={{border:passWValidaion ?"red 4px solid":""}}
           onChange={(e) => setInputaPassword(e.target.value)}
         /><br/>
-        {
-          passWValidaion ? <p style={{color:"red"}}>not a valid password</p>: <></>
-        }
+        {          passWValidaion ? <p style={{color:"red"}}>not a valid password</p>:<></>        }
         <button type="submit">Login</button>
       </form>
       <input type='checkbox'
@@ -79,6 +77,7 @@ const Login = (props) => {
       Need an accout? <Link to="/register">SingUp</Link>
       {errorMessege ? <h3 style={{ color: 'red' }}>{errorMessege}</h3> : ""}
       {loader ? <Loader /> : <></>}
+      {/* <Loader/> */}
     </div>
   )
 }

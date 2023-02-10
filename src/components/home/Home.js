@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Blog from "./Blog";
+import Blog from "../card/Blog";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import Loader from './Loader';
+import Loader from '../old_components/Loader';
 
 // import useHistory from 'react-router-dom'
 const Home=()=>{
@@ -25,9 +25,9 @@ const Home=()=>{
                         authorization : localStorage.getItem('logToken')                      
                     }
                 }
-                const res = await axios.get ('https://dec-k5lr.onrender.com/blog',config)
+                const res = await axios.get ('https://hirakp-fullstackblog-post-prt1.onrender.com/blog',config)
                     setData(res.data.blog) 
-                    // console.log(res.data.blog)       
+                    console.log(res.data.blog)       
             } catch (error) {
                 console.log(error)
             }
@@ -52,9 +52,9 @@ const Home=()=>{
             </nav>
             <div className="Blog" >
     
-                {data.map((item)=>{
+                {data.map((item,i)=>{
                         return (
-                        <Blog data={item}/>
+                        <Blog key={i*.00215*0.25} data={item}/>
                         )
                     })} 
 

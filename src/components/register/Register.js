@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import Loader from "./Loader"
+import Loader from "../old_components/Loader"
 const Register = (props) => {
   const [inputEmail, setInputaEmail] = useState('');
   const [inputPassword, setInputaPassword] = useState('');
@@ -32,7 +32,7 @@ const Register = (props) => {
             email: inputEmail,
             password: inputPassword
           } 
-          const resp = await axios.post('https://dec-k5lr.onrender.com/user/register', body)      
+          const resp = await axios.post('https://hirakp-fullstackblog-post-prt1.onrender.com/user/register', body)      
           setSuccessMsg(resp.data.status)
           setAxiosErr('')
         } catch (error) {
